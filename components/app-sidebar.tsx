@@ -35,8 +35,8 @@ import {
 } from '@/components/ui/sidebar'
 
 interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
-  currentView?: 'home' | 'chat'
-  onNavigate?: (view: 'home' | 'chat') => void
+  currentView?: 'home' | 'chat' | 'agents'
+  onNavigate?: (view: 'home' | 'chat' | 'agents') => void
 }
 
 export function AppSidebar({ currentView = 'home', onNavigate, ...props }: AppSidebarProps) {
@@ -64,8 +64,8 @@ export function AppSidebar({ currentView = 'home', onNavigate, ...props }: AppSi
         title: "Agents",
         url: "#",
         icon: BotIcon,
-        isActive: currentView === 'chat',
-        onClick: () => onNavigate?.('chat'),
+        isActive: currentView === 'agents',
+        onClick: () => onNavigate?.('agents'),
       },
       {
         title: "Projects",
