@@ -45,6 +45,13 @@ export function NavMain({
                   : "h-9 w-9 shrink-0 group-data-[collapsible=icon]:opacity-0"
               }
               variant="outline"
+              onClick={() => {
+                // Find the chat navigation item and trigger its onClick
+                const chatItem = items.find(item => item.title === 'Agents')
+                if (chatItem?.onClick) {
+                  chatItem.onClick()
+                }
+              }}
             >
               <MailIcon />
               <span className="sr-only">Inbox</span>
