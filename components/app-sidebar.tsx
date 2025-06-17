@@ -37,9 +37,10 @@ import {
 interface AppSidebarProps extends React.ComponentProps<typeof Sidebar> {
   currentView?: 'home' | 'chat' | 'agents'
   onNavigate?: (view: 'home' | 'chat' | 'agents') => void
+  onNavigateToChat?: () => void
 }
 
-export function AppSidebar({ currentView = 'home', onNavigate, ...props }: AppSidebarProps) {
+export function AppSidebar({ currentView = 'home', onNavigate, onNavigateToChat, ...props }: AppSidebarProps) {
   const data = {
     user: {
       name: "shadcn",
@@ -182,7 +183,7 @@ export function AppSidebar({ currentView = 'home', onNavigate, ...props }: AppSi
         </SidebarMenu>
       </SidebarHeader>
       <SidebarContent>
-        <NavMain items={data.navMain} />
+        <NavMain items={data.navMain} onNavigateToChat={onNavigateToChat} />
         <NavDocuments items={data.documents} />
         <NavSecondary items={data.navSecondary} className="mt-auto" />
       </SidebarContent>

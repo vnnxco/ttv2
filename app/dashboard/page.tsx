@@ -29,6 +29,7 @@ export default function Page() {
         variant="inset" 
         currentView={currentView}
         onNavigate={(view) => setCurrentView(view)}
+        onNavigateToChat={handleNavigateToChat}
       />
       <SidebarInset className="overflow-hidden">
         <SiteHeader />
